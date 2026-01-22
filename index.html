@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <link rel="stylesheet" href="css/styles.css">
   <head>
     <!-- Metadata -->
     <meta charset="UTF-8">
@@ -14,8 +15,55 @@
   <body>
     <!-- Header Section -->
     <header>
-      <h1>LaShay's Photography</h1>
-      <h2>Portrait and Lifestyle Photography Across the LowCountry</h2>
+      <header class="hero" id="top">
+  <!-- Left: scrolling collage -->
+  <section class="hero-left" aria-label="Featured images">
+    <div class="collage-window" id="collageWindow">
+      <div class="collage-track" id="collageTrack">
+
+        <!-- Set A -->
+        <img src="images/hero/img1.jpg" alt="Featured photo 1" class="c1">
+        <img src="images/hero/img2.jpg" alt="Featured photo 2" class="c2">
+        <img src="images/hero/img3.jpg" alt="Featured photo 3" class="c3">
+        <img src="images/hero/img4.jpg" alt="Featured photo 4" class="c4">
+        <img src="images/hero/img5.jpg" alt="Featured photo 5" class="c5">
+        <img src="images/hero/img6.jpg" alt="Featured photo 6" class="c6">
+
+        <!-- Set B (duplicate for seamless loop) -->
+        <img src="images/hero/img1.jpg" alt="" aria-hidden="true" class="c1">
+        <img src="images/hero/img2.jpg" alt="" aria-hidden="true" class="c2">
+        <img src="images/hero/img3.jpg" alt="" aria-hidden="true" class="c3">
+        <img src="images/hero/img4.jpg" alt="" aria-hidden="true" class="c4">
+        <img src="images/hero/img5.jpg" alt="" aria-hidden="true" class="c5">
+        <img src="images/hero/img6.jpg" alt="" aria-hidden="true" class="c6">
+
+      </div>
+    </div>
+
+    <!-- Left fade -->
+    <div class="left-fade" aria-hidden="true"></div>
+  </section>
+
+  <!-- Right: title + buttons over heavy black overlay -->
+  <section class="hero-right" aria-label="Site intro">
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <h1>LaShay’s Photography</h1>
+      <p class="tagline">Portrait &amp; Lifestyle Photography</p>
+
+      <nav class="hero-cta" aria-label="Primary">
+        <a class="btn" href="#gallery">View Gallery</a>
+        <a class="btn" href="#about">About Me</a>
+        <a class="btn" href="#contact">Contact Me</a>
+      </nav>
+    </div>
+  </section>
+</header>
+
+<!-- Load JS at end of body -->
+<script src="js/scroll.js" defer></script>
+
     </header>
 
     <!-- Navigation Menu -->
