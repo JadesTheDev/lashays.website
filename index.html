@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=20261008-6">
+    <link rel="stylesheet" href="css/styles.css?v=20261008-7">
   </head>
 
   <body>
@@ -103,9 +103,49 @@
         </div>
       </section>
 
-      <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Through this section, you can shoot me a message and I will get back to you soon!</p>
+      <section id="contact" class="contact-section">
+        <div class="contact-layout">
+          <div class="contact-intro">
+            <span class="contact-eyebrow">CONTACT</span>
+            <h2>Let's Capture Your Moment</h2>
+            <p>Have a special occasion coming up, or a moment you'd love to remember? Tell me a little about what you have in mind. I'd love to hear from you!</p>
+          </div>
+          <div class="contact-card">
+            <form class="contact-form" aria-label="Photography inquiry form">
+              <div class="form-field">
+                <label for="inquiry-type">What is your inquiry about?</label>
+                <select id="inquiry-type" name="inquiry_type" required>
+                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="Celebration">Celebration</option>
+                  <option value="Graduation">Graduation</option>
+                  <option value="Birthday">Birthday</option>
+                  <option value="Wedding">Wedding</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-pair">
+                <div class="form-field">
+                  <label for="contact-name">Name</label>
+                  <input id="contact-name" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="form-field">
+                  <label for="contact-email">Email</label>
+                  <input id="contact-email" name="email" type="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="contact-phone">Phone <span class="optional">(optional)</span></label>
+                <input id="contact-phone" name="phone" type="tel" autocomplete="tel">
+              </div>
+              <div class="form-field">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" rows="6" placeholder="Tell me about the occasion, preferred date, location, and anything else you'd like me to know." required></textarea>
+              </div>
+              <button type="submit" disabled aria-disabled="true">Send Message</button>
+              <p class="contact-note">Online inquiries are coming soon. The form will be available once messaging is connected.</p>
+            </form>
+          </div>
+        </div>
       </section>
     </main>
 
