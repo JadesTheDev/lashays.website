@@ -288,3 +288,139 @@ footer .site-credit a:hover, footer .site-credit a:focus-visible { text-decorati
     transition: none;
   }
 }
+
+
+/* ==========================================================
+   RATES | SECTION HEADING AND LAYOUT
+   ========================================================== */
+
+.rates-section {
+  padding-top: clamp(52px, 7vw, 100px);
+  padding-bottom: clamp(52px, 7vw, 100px);
+}
+
+.rates-heading {
+  margin-bottom: 34px;
+}
+
+.rates-eyebrow {
+  color: var(--antique-gold);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.rates-heading h2 {
+  margin-top: 14px;
+}
+
+.rates-heading > p {
+  max-width: 580px;
+}
+
+.rates-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* ==========================================================
+   RATES | INDIVIDUAL PACKAGE CARDS
+   ========================================================== */
+
+.rate-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 3.5vw, 42px);
+  border: 1px solid rgba(198, 166, 103, 0.48);
+  border-radius: 20px;
+  background: linear-gradient(145deg, #17140f, #080808 75%);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+}
+
+.rate-card h3 {
+  margin: 0 0 18px;
+  color: var(--champagne);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 2.6vw, 32px);
+}
+
+.rate-price {
+  margin: 0 0 14px;
+  color: var(--ivory);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(38px, 4vw, 54px);
+  line-height: 1.2;
+}
+
+.rate-price span {
+  color: var(--champagne);
+  font-size: 16px;
+}
+
+.rate-price.rate-custom {
+  font-size: clamp(30px, 3.5vw, 46px);
+}
+
+.rate-description {
+  color: #d7d0c2;
+  line-height: 1.7;
+}
+
+.rate-features {
+  display: grid;
+  gap: 12px;
+  margin: 26px 0 30px;
+  padding-left: 22px;
+  color: var(--ivory);
+  line-height: 1.6;
+}
+
+.rate-features li::marker {
+  color: var(--antique-gold);
+}
+
+.rate-link {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 12px 20px;
+  border: 1px solid var(--antique-gold);
+  color: var(--champagne);
+  font-family: "Playfair Display", Georgia, serif;
+  text-decoration: none;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+.rate-link:hover,
+.rate-link:focus-visible {
+  background: var(--champagne);
+  color: #111;
+}
+
+.rates-note {
+  max-width: 850px;
+  margin: 24px auto 0;
+  color: #c7c0b4;
+  font-size: 13px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* ==========================================================
+   RATES | RESPONSIVE PACKAGE LAYOUT
+   ========================================================== */
+
+@media (max-width: 720px) {
+  .rates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rate-link {
+    transition: none;
+  }
+}
