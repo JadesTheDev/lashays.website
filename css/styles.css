@@ -79,7 +79,7 @@ footer a { color: var(--champagne); }
 @media (prefers-reduced-motion: reduce) { .site-nav-links a::after, .hero-cta .btn { transition: none; } }
 
 /* Refined title, pronounced offset shadow, and split footer */
-.hero-content h1 { color: var(--antique-gold); text-shadow: 4px 4px 0 rgba(92,65,29,.95), 7px 7px 0 rgba(222,195,140,.55), 10px 11px 16px rgba(198,166,103,.22); }
+.hero-content h1 { color: #fff; text-shadow: 4px 4px 0 rgba(198,166,103,.95), 7px 7px 0 rgba(150,113,51,.8), 10px 11px 16px rgba(198,166,103,.24); }
 footer { display: flex; align-items: center; justify-content: space-between; gap: 16px 32px; flex-wrap: wrap; }
 footer p { margin: 0; }
 footer .site-credit a { color: var(--champagne); text-decoration: none; }
