@@ -85,3 +85,7 @@ footer p { margin: 0; }
 footer .site-credit a { color: var(--champagne); text-decoration: none; }
 footer .site-credit a:hover, footer .site-credit a:focus-visible { text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 600px) { footer { align-items: flex-start; } }
+
+/* Typography preview: Great Vibes logo + Playfair Display supporting UI */
+.hero-content h1 { font-family: "Great Vibes", cursive; font-weight: 400; font-size: clamp(54px, 6.4vw, 100px); line-height: 1.24; padding-top: .12em; color: #fff; }
+.tagline, .site-nav-links a, .hero-cta .btn { font-family: "Playfair Display", Georgia, serif; }
