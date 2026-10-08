@@ -1,43 +1,33 @@
 (() => {
   const track = document.getElementById("collageTrack");
-  const windowEl = document.getElementById("collageWindow");
-
-  if (!track || !windowEl) return;
-
-  let y = 0;
-  let last = performance.now();
-
-  // px per second (keep it subtle)
-  const speed = 12;
-
-  // We duplicated the images once, so half the track height is a full cycle.
-  const getCycleHeight = () => track.scrollHeight / 2;
-
+  if (!track) return;
+  const images = [...track.querySelectorAll("img")];
+  const originalCount = images.length / 2;
+  if (!Number.isInteger(originalCount) || originalCount < 1) return;
   let cycle = 0;
-  const updateCycle = () => { cycle = getCycleHeight(); };
-  updateCycle();
-
-  // Recompute on resize (images load can affect height)
-  window.addEventListener("resize", updateCycle);
-
-  // Respect "reduce motion"
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReduced) return;
-
-  function tick(now) {
-    const dt = (now - last) / 1000;
-    last = now;
-
-    y -= speed * dt;
-
-    // Loop when we've scrolled one full cycle
-    if (cycle > 0 && Math.abs(y) >= cycle) {
-      y = 0;
-    }
-
-    track.style.transform = `translateY(${y}px)`;
-    requestAnimationFrame(tick);
+  let offset = 0;
+  let previous = 0;
+  const speed = 20; // pixels per second
+  function measure() {
+    const first = images[0];
+    const duplicate = images[originalCount];
+    if (!first || !duplicate) return;
+    cycle = duplicate.offsetTop - first.offsetTop;
+    if (cycle > 0) offset %= cycle;
   }
-
-  requestAnimationFrame(tick);
+  window.addEventListener("resize", measure);
+  images.forEach(img => img.addEventListener("load", measure));
+  measure();
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  function animate(now) {
+    if (!previous) previous = now;
+    const dt = Math.min((now - previous) / 1000, 0.1);
+    previous = now;
+    if (cycle > 0) {
+      offset = (offset + speed * dt) % cycle;
+      track.style.transform = `translateY(-${offset}px)`;
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
 })();
