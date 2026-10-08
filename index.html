@@ -365,7 +365,15 @@
             <p>Have a special occasion coming up, or a moment you'd love to remember? Tell me a little about what you have in mind. I'd love to hear from you!</p>
           </div>
           <div class="contact-card">
-            <form class="contact-form" aria-label="Photography inquiry form">
+            <!-- ==================================================
+                 CONTACT | FORMSPREE SUBMISSION
+                 ================================================== -->
+            <form
+              class="contact-form"
+              action="https://formspree.io/f/xrpeqooe"
+              method="POST"
+              aria-label="Photography inquiry form"
+            >
               <div class="form-field">
                 <label for="inquiry-type">What is your inquiry about?</label>
                 <select id="inquiry-type" name="inquiry_type" required>
@@ -395,8 +403,11 @@
                 <label for="contact-message">Message</label>
                 <textarea id="contact-message" name="message" rows="6" placeholder="Tell me about the occasion, preferred date, location, and anything else you'd like me to know." required></textarea>
               </div>
-              <button type="submit" disabled aria-disabled="true">Send Message</button>
-              <p class="contact-note">Online inquiries are coming soon. The form will be available once messaging is connected.</p>
+              <button type="submit">Send Message</button>
+              <p class="contact-note">
+                Your inquiry will be sent directly to LaShay. She'll use the
+                contact information you provide to respond.
+              </p>
             </form>
           </div>
         </div>
