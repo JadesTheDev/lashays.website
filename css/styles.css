@@ -5,7 +5,7 @@ body { margin: 0; background: #000; color: #fff; font-family: system-ui, -apple-
 .hero-left { position: relative; min-height: 100svh; overflow: hidden; background: #000; margin: 0; }
 .collage-window { position: absolute; inset: 0; overflow: hidden; }
 .collage-track { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: 100%; will-change: transform; }
-.collage-track img { display: block; width: 100%; aspect-ratio: 4 / 5; height: auto; object-fit: cover; filter: grayscale(1) contrast(1.08); opacity: .92; }
+.collage-track img { display: block; width: 100%; aspect-ratio: 4 / 5; height: auto; object-fit: cover;  }
 .left-fade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(0,0,0,.85), transparent 90px, transparent 55%, #000 100%); }
 .hero-right { position: relative; display: grid; align-items: center; padding: clamp(24px, 5vw, 80px); margin: 0; background: #000; }
 .hero-overlay { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(0,0,0,.65), #000 65%); }
@@ -43,6 +43,37 @@ main section p { max-width: 680px; color: #c5c5c5; font-size: 17px; line-height:
 /* About Me portrait and biography */
 .about-layout { display: grid; grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.15fr); gap: clamp(32px, 6vw, 90px); align-items: center; }
 .about-photo { overflow: hidden; background: #161616; border: 1px solid #292929; }
-.about-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; filter: grayscale(1); }
+.about-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center;  }
 .about-copy p + p { margin-top: 22px; }
 @media (max-width: 700px) { .about-layout { grid-template-columns: 1fr; gap: 32px; } .about-photo { max-width: 480px; } }
+
+/* Gold and champagne identity */
+:root { --antique-gold: #c6a667; --champagne: #e4d2aa; --ivory: #f5f1e9; }
+.hero-content h1, h1 { color: var(--ivory); text-shadow: 2px 2px 0 rgba(198,166,103,.62), 4px 4px 12px rgba(198,166,103,.24); }
+main section h2, h3, h4, h5, h6 { color: var(--champagne); }
+main section h2::after { content: ""; display: block; width: 56px; height: 2px; margin-top: 16px; background: var(--antique-gold); }
+.tagline { color: var(--champagne); }
+.site-nav-links a { position: relative; padding-bottom: 6px; transition: color .2s ease; }
+.site-nav-links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--antique-gold); transform: scaleX(0); transform-origin: left; transition: transform .2s ease; }
+.site-nav-links a:hover, .site-nav-links a:focus-visible { color: var(--champagne); text-decoration: none; }
+.site-nav-links a:hover::after, .site-nav-links a:focus-visible::after { transform: scaleX(1); }
+body:not(:has(main section:target)) .site-nav-links a[href="#top"]::after,
+body:has(#gallery:target) .site-nav-links a[href="#gallery"]::after,
+body:has(#about:target) .site-nav-links a[href="#about"]::after,
+body:has(#contact:target) .site-nav-links a[href="#contact"]::after { transform: scaleX(1); }
+body:not(:has(main section:target)) .site-nav-links a[href="#top"],
+body:has(#gallery:target) .site-nav-links a[href="#gallery"],
+body:has(#about:target) .site-nav-links a[href="#about"],
+body:has(#contact:target) .site-nav-links a[href="#contact"] { color: var(--champagne); }
+.hero-cta .btn, button, input[type="submit"], .contact-form button { border: 1px solid var(--antique-gold); color: var(--champagne); background: transparent; transition: background-color .2s, color .2s, box-shadow .2s; }
+.hero-cta .btn:hover, .hero-cta .btn:focus-visible, button:hover, input[type="submit"]:hover, .contact-form button:hover { color: #111; background: var(--champagne); box-shadow: 0 0 16px rgba(198,166,103,.25); }
+.about-photo { border: 1px solid var(--antique-gold); padding: 5px; background: #080808; box-shadow: 0 0 0 1px rgba(198,166,103,.18); }
+.gallery-grid img, .gallery-item img { display: block; max-width: 100%; }
+.gallery-grid a, .gallery-item { outline: 1px solid transparent; transition: outline-color .2s, box-shadow .2s; }
+.gallery-grid a:hover, .gallery-grid a:focus-visible, .gallery-item:hover { outline-color: var(--antique-gold); box-shadow: 0 0 12px rgba(198,166,103,.22); }
+#contact input:not([type="submit"]), #contact textarea, #contact select { background: #111; color: var(--ivory); border: 1px solid #666; padding: 12px; max-width: 100%; }
+#contact input:focus-visible, #contact textarea:focus-visible, #contact select:focus-visible { border-color: var(--antique-gold); outline: 2px solid rgba(198,166,103,.32); outline-offset: 2px; }
+#contact button[type="submit"], #contact input[type="submit"] { background: var(--champagne); color: #15120b; border-color: var(--champagne); cursor: pointer; }
+#contact button[type="submit"]:hover, #contact input[type="submit"]:hover { background: var(--ivory); }
+footer a { color: var(--champagne); }
+@media (prefers-reduced-motion: reduce) { .site-nav-links a::after, .hero-cta .btn { transition: none; } }
